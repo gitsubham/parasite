@@ -17,11 +17,11 @@
 		<div class="col-lg-3"></div>
 		<div class=" well col-lg-6">
 
-			<form class="generate-otp">
+			<form class="generate-otp" action="./generate" method="post">
 
 				<div class="col-lg-9 input-group-lg">
 
-					<input id="inputPhone" class="form-control "
+					<input id="inputPhone" name="inputPhone" class="form-control "
 						placeholder="Phone Number" required="" autofocus="" type="text">
 				</div>
 				<div class="col-lg-3">
@@ -30,9 +30,9 @@
 				</div>
 			</form>
 
-			<form id="search-number">
+			<form id="search-number" action="./search" method="post">
 				<div class="col-lg-6 input-group-lg">
-					<input id="inputOTP" class="form-control " placeholder="OTP"
+					<input id="inputOTP" name="inputOTP" class="form-control " placeholder="OTP"
 						required="" autofocus="" type="text">
 				</div>
 				<div style="margin: 10%"></div>
