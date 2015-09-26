@@ -31,7 +31,8 @@
 						<form class="viewLinkedNumbers" method="post" action="#">
 							<td >1</td>
 								<td id="docType" name="docType">Pan Card</td>
-							<td id="actualDocId" name="actualDocId">ABC</td>
+								<input type="hidden" id="actualDocId" name="actualDocId" val=${actualDocId} />
+							<td type="hidden" id="encryptedDocId" name="encryptedDocId"> ${encryptedDocId} </td>
 							<td>
 								<button class="btn  btn-sm btn-primary" type="submit">View
 									Numbers</button>
