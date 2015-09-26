@@ -30,7 +30,7 @@
 				</div>
 			</form>
 
-			<form id="search-number">
+			<form id="search-number" action="./finddetail" method="post">
 				<div class="col-lg-6 input-group-lg">
 					<input id="inputPhone" class="form-control " placeholder="OTP"
 						required="" autofocus="" type="email">
