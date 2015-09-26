@@ -11,12 +11,12 @@
 </head>
 <body>
 
-	<%@include file="includes/header.jsp" %>
-	<div class = "container-fluid">
+	<%@include file="includes/header.jsp"%>
+	<div class="container-fluid">
 		<div style="margin: 10%"></div>
 		<div class="col-lg-3"></div>
 		<div class=" well col-lg-6">
-		
+
 			<form class="generate-otp">
 
 				<div class="col-lg-9 input-group-lg">
@@ -45,27 +45,8 @@
 		</div>
 
 	</div>
-
-	
-	
-	
-
-	
-
-<!--<div class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-</div> -->
-</div>
-</div>
-	</div>
-	</div>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
 
-<script src="js/bootstrap.min.js"></script>
-</body>
-</html>

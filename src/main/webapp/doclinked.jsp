@@ -28,10 +28,10 @@
 						<td>Action</td>
 					</tr>
 					<tr>
-						<form class="verifyConnection" method="post" action="#">
+						<form class="viewLinkedNumbers" method="post" action="#">
 							<td >1</td>
-							<td id="docType">Pan Card</td>
-							<td id="actualDocId">ABC</td>
+								<td id="docType" name="docType">Pan Card</td>
+							<td id="actualDocId" name="actualDocId">ABC</td>
 							<td>
 								<button class="btn  btn-sm btn-primary" type="submit">View
 									Numbers</button>
@@ -40,9 +40,7 @@
 					</tr>
 				</table>
 			</div>
-
 		</div>
-
 	</div>
 	
 

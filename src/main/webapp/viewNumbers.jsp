@@ -17,32 +17,28 @@
 		<div class=" col-lg-7">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title" style="text-align: center">Documents
-						Linked</h3>
+					<h3 class="panel-title" style="text-align: center">Numbers linked with  ${docType} ${actualDocId}</h3> 
 				</div>
 				<table class="table ">
 					<tr>
 						<td>#</td>
-						<td>Document Type</td>
-						<td>Document Id</td>
+						<td>Mobile Number</td>
+						<td>Telecom Provider</td>
 						<td>Action</td>
 					</tr>
 					<tr>
-						<form class="verifyConnection" method="post" action="#">
+						<form class="verifyMobileNumber" method="post" action="#">
 							<td >1</td>
-							<td id="docType">Pan Card</td>
-							<td id="actualDocId">ABC</td>
+							<td id="mobileNumber" name="mobileNumber">8293576114</td>
+							<td id="telecomProvider" name="telecomProvider">${telecomProvider}</td>
 							<td>
-								<button class="btn  btn-sm btn-primary" type="submit">View
-									Numbers</button>
+								<button class="btn  btn-sm btn-primary" type="submit">Verify Ownership</button>
 							</td>
 						</form>
 					</tr>
 				</table>
 			</div>
-
 		</div>
-
 	</div>
 	
 
