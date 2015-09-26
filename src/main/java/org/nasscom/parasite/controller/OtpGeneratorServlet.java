@@ -26,10 +26,14 @@ public class OtpGeneratorServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		if (MobileUtils.isValidMobileNumber(num)) {
 			AppUser user = (AppUser) session.getAttribute("user");
-			user.setMobileNumber(num);
+			if(user == null){
+				user = new AppUser();
+			}
+				user.setMobileNumber(num);
 			user.setOTP(MobileUtils.generateOTP());
 			session.setAttribute("user", user);
-			session.removeAttribute("error");
+			if(session.getAttribute("error")!= null)
+				session.removeAttribute("error");
 		} else {
 			session.setAttribute("error", "Invalid Mobile Number");
 		}
