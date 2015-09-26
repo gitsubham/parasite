@@ -22,7 +22,7 @@
 				<div class="col-lg-9 input-group-lg">
 
 					<input id="inputPhone" class="form-control "
-						placeholder="Phone Number" required="" autofocus="" type="email">
+						placeholder="Phone Number" required="" autofocus="" type="text">
 				</div>
 				<div class="col-lg-3">
 					<button class="btn btn-lg btn-primary" type="submit">Generate
@@ -32,8 +32,8 @@
 
 			<form id="search-number">
 				<div class="col-lg-6 input-group-lg">
-					<input id="inputPhone" class="form-control " placeholder="OTP"
-						required="" autofocus="" type="email">
+					<input id="inputOTP" class="form-control " placeholder="OTP"
+						required="" autofocus="" type="text">
 				</div>
 				<div style="margin: 10%"></div>
 

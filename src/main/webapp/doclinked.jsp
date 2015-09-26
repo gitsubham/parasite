@@ -10,57 +10,41 @@
 <title>Parasite</title>
 </head>
 <body>
-
-	<%@include file="includes/header.jsp" %>
-	<div class = "container-fluid">
+	<%@include file="includes/header.jsp"%>
+	<div class="container-fluid">
 		<div style="margin: 10%"></div>
 		<div class="col-lg-3"></div>
-		<div class=" well col-lg-6">
-		
-			<form class="generate-otp">
-
-				<div class="col-lg-9 input-group-lg">
-
-					<input id="inputPhone" class="form-control "
-						placeholder="Phone Number" required="" autofocus="" type="text">
+		<div class=" col-lg-7 ">
+			<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title" style="text-align: center">Documents
+							Linked</h3>
+					</div>
+					<table class="table">
+					<form class="generate-otp">							
+						
+							<th>
+								<td>Document Type </td>
+								<td> Document Id</td>
+								<td> Action </td>
+							</th>
+							<tr>
+								<td>Pan Card </td>
+								<td> ABC</td>
+								<td> <button class="btn  btn-primary" type="submit">View Numbers</button> </td>
+					
+							</form>
+							</tr>
+						</table>
+						</div>
+						
+						</div>
+					
 				</div>
-				<div class="col-lg-3">
-					<button class="btn btn-lg btn-primary" type="submit">Generate
-						OTP</button>
-				</div>
-			</form>
-
-			<form id="search-number">
-				<div class="col-lg-6 input-group-lg">
-					<input id="inputPhone" class="form-control " placeholder="OTP"
-						required="" autofocus="" type="text">
-				</div>
-				<div style="margin: 10%"></div>
-
-				<div class="col-lg-1">
-					<button class="btn btn-lg btn-primary" type="submit">Search</button>
-				</div>
-			</form>
-
+			</div>
 		</div>
-
 	</div>
-
 	
-	
-	
-
-	
-
-<!--<div class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-</div> -->
-</div>
-</div>
-	</div>
-	</div>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
