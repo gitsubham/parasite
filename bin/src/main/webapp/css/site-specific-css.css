@@ -1,0 +1,381 @@
+ <style>
+ .table1
+ {
+ 	text-align: center;
+ 	border: 0;
+ }
+ .mainMenu{
+	margin-top:15px;
+ }
+   	   .header 
+    	 {
+			   position:fixed;
+			   top:0px;
+			   left:0px;
+			   z-index:1px;
+			   background-color: rgba(21, 173, 211, 0.98);
+			   height:50px;
+			   width: 60%;
+			   margin-left: 20%;
+		 }
+		 
+		 
+		 .banner-head {
+        display: table-cell;
+        vertical-align: middle;
+        margin-bottom: 0;
+        font-size: 2em;
+        color: white;
+        font-weight: 500;
+        text-shadow: 0 1px 1px black;
+    }
+      	 .header a
+		 {
+		 		text-decoration: none;
+		 }
+		 
+		 
+		 .banner {
+		background: transparent url('../ovmgmt/img/bus.jpg') 0 0 no-repeat fixed;
+		text-align: center;
+    background-size: cover;
+    
+
+    height: 200px;
+    width: 100%;
+    margin-bottom: 3em;
+    display: table;
+}
+		 .pageContainer
+		 {
+			margin-top:-2%;
+			background: rgba(230, 231, 218, 0.37);	
+			width: 60%;
+			margin-left:20%;
+			
+		 }
+
+		 .mainContainer{
+			height:100%;
+		 
+		 }
+    	.container 
+    	{
+    		
+			margin-left: 20%;
+			margin-right : 20%;
+			margin-top : 100px;
+			
+			background-color: rgb(248, 252, 220);;
+			height: 500px;
+		}
+		.containerLong
+    	{
+    		
+			margin-left: 20%;
+			margin-right : 20%;
+			margin-top : 100px;
+			
+			background-color: rgb(248, 252, 220);;
+			height: 600px;
+		}
+		
+		.container-pad
+		{
+			margin-top : 100px;
+			padding-top: 100px;
+			
+		}  
+    	
+   		 .box 
+    	{
+    		border: 1px solid #CCC;
+			position: relative;
+			height: 30%;
+			width: 51%;
+			margin-left: 20%;
+			padding-top: 30px;
+			padding-left: 10%;
+			    			
+   		}
+   		 .boxMedium
+    	{
+    		border: 1px solid #CCC;
+			position: relative;
+			height: 40%;
+			width: 51%;
+			margin-left: 20%;
+			padding-top: 30px;
+			padding-left: 10%;
+			    			
+   		}
+   		.boxLong 
+    	{
+    		border: 1px solid #CCC;
+			position: relative;
+			height: 50%;
+			width: 51%;
+			margin-left: 20%;
+			padding-top: 30px;
+			padding-left: 10%;
+			    			
+   		}
+   		
+   		
+   	.busimage {
+   				overflow:hidden;
+				border: 1px solid #CCC;
+				position: relative;
+				background-color: yellow;
+				background-image: url('../img/bus.jpg');
+				margin-bottom: 50px;
+				/* margin-top: 100px; */
+				width: 99.9%;
+				height: 20%;
+			}
+			
+	.buttonWrapper
+			 {
+    			margin-top: 10%;
+    			text-align: center;
+			 
+			 }
+			 .buttonWrapperCustom
+			 {
+    			margin-top: 5%;
+    			text-align: center;
+			 
+			 }
+			 
+	.buttonWrapper:hover
+			 {
+			 	cursor:pointer;
+			 }
+			 
+			.footer {
+
+				bottom: 0px;
+				left: 0px;
+				background-color: rgba(21, 173, 211, 0.98);
+				height: 5%;
+				color: white;
+				text-align: center;
+				position:fixed;
+				width: 60%;
+				margin-left: 20%;
+			}
+			
+			.body
+			{
+				
+			}
+			
+			ul{ 
+			height: 1em;
+			width: 92%;
+			text-align: right;
+			margin-top:14px;
+			} 
+			
+		
+		li{ 
+			color:white;
+			padding:10px;
+			font-family: sans-serif;
+			display:inline;
+					
+		} 
+		li:hover {
+		
+			cursor: pointer;
+			border-color:black;
+		}
+		
+		
+		.brand
+		{ 	color: white;
+			background: black;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			margin-left: 0%;
+			margin-right: 0%;
+			float: left;
+			padding-bottom: 0.75%;
+			padding-top: 1.75%;
+			text-align: center;
+			width: 12%;
+		}
+		
+		.brand:hover
+		{
+			cursor: pointer;
+			
+		}
+		
+	.label{
+   			    display: inline-block;
+   				float: left;
+    		    clear: left;
+   			    width: 100px;
+    			text-align: center;
+				background: transparent;
+				border:none;
+			}
+		
+			
+	.labelClass {
+
+                display: inline-block;
+				width: 100px;
+	            margin-right: 5px;
+	            margin-top: 5px;
+               text-align: left;
+
+            }
+            .labelClassSet {
+
+                display: inline-block;
+                width: 150px;
+                margin-right: 5px;
+                margin-top: 5px;
+               text-align: left;
+
+            }
+            .errorMsg {
+
+                display: inline-block;
+                width: 300px;
+                margin-right: 5px;
+			    margin-top: 5px;
+               text-align: left;
+            }
+		.heading
+       {
+       	color:Blue;
+       	margin-top:100px;
+       }
+       .lists
+       {
+       		color:black;
+       		font-size: 200 px;
+       		margin-left: 20px;
+       	}
+       .buttons1
+       {
+		    color: green;
+		    margin-top:30px;
+		    font-size: 30px;
+		    width:500px;
+		    height: 20px;
+		    line-height: 20px;
+		    padding-bottom: 2px;
+		    vertical-align: middle;
+		    font-family: "Lucida Grande", Geneva, Verdana, Arial, Helvetica, sans-serif;
+		    font-size: 13px;
+		    <!--font-weight: bold;-->
+		    text-transform: none;
+		    border:1px solid transparent;
+       }
+       .buttons2
+       {
+		    color:blue;
+		    margin-top:30px;
+		    float: center;
+		    width:105px;
+		    height: 20px;
+		    line-height: 20px;
+		    padding-bottom: 2px;
+		    vertical-align: middle;
+		    font-family: "Lucida Grande", Geneva, Verdana, Arial, Helvetica, sans-serif;
+		    font-size: 13px;
+		    <!--font-weight: bold;-->
+		    text-transform: none;
+		    border:1px solid transparent;
+       }
+       .names
+       {
+	       color:blue;
+	       font-size: 20px;
+       }
+       .Add
+		{
+		margin-left: 50%;
+		margin-top: -20%  
+		}
+		
+		.button
+ 		{
+ 			top:80%;
+ 		}
+ 		.error
+ 		{
+ 			position: absolute;
+			padding-top: 8%;
+			padding-left: 25%;
+			color: red;
+ 			
+ 		}
+ 		
+ 		.box1
+   		{
+    		    width:600px;
+    			height:500px;
+     			background-color:#d9d9d9;
+     			position:fixed;
+     			margin-left:-300px; /* half of width */
+     			margin-top:-250px;  /* half of height */
+     			top:50%;
+     			left:50%;
+ 		}
+		
+		
+
+        .button-secondary {
+			color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+ 		
+ #box-table-a
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 45px;
+	width: 50%;
+	padding-left:40%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+#box-table-a th
+{
+	
+	width: 10%;
+	font-size: 17px;
+	font-weight: normal;
+	padding: 15px;
+	
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 4px solid #fff;
+	color: #039;
+}
+#box-table-a td
+{
+	padding: 0px;
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+	font-size:15px; 
+}
+#box-table-a tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}
+ 		
+ 	
+		
+      </style>
