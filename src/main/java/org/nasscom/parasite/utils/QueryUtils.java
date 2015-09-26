@@ -19,12 +19,8 @@ public class QueryUtils {
 		PreparedStatement preparedStatement = null;
 		StringBuilder selectSql = new StringBuilder();
 		selectSql = selectSql.append(" Select card_type,card_id")
-							 .append(" from")
-							 .append(" telcom_details")
-							 .append(" where")
-							 .append(" mobile_num=")
-							 .append(" '?'");
-
+				.append(" from").append(" telcom_details").append(" where")
+				.append(" mobile_num=").append(" '?'");
 
 		ArrayList<Document> result = new ArrayList<Document>();
 		try {
@@ -35,14 +31,18 @@ public class QueryUtils {
 			rs = stmt.executeQuery(selectSql.toString());
 
 			while (rs.next()) {
-	
+				Document dc = new Document();
+				dc.setDocType(rs.getString("card_type"));
+				dc.setActualDocId(rs.getString("card_id"));
+				dc.setEncryptedDocId(rs.getString("card_id"));
+				result.add(dc);
 			}
 
 		} catch (Exception e) {
 
 		}
 
-		return null;
+		return result;
 	}
 
 }
