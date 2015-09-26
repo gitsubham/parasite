@@ -15,7 +15,15 @@
 		<servlet-class>org.nasscom.parasite.controller.OtpGeneratorServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>DocDetail</servlet-name>
+		<servlet-class>org.nasscom.parasite.controller.DocumentDetailServlet</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>DocDetail</servlet-name>
+		<url-pattern>/details</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>

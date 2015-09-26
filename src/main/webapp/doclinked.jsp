@@ -28,7 +28,7 @@
 						<td>Action</td>
 					</tr>
 					<tr>
-						<form class="viewLinkedNumbers" method="post" action="#">
+						<form class="viewLinkedNumbers" method="post" action="./details">
 							<td >1</td>
 								<td id="docType" name="docType">Pan Card</td>
 								<input type="hidden" id="actualDocId" name="actualDocId" val=${actualDocId} />

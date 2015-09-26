@@ -31,10 +31,10 @@ public class DocumentDetailServlet extends HttpServlet {
 
 			ArrayList<MobileNumber> mobileNumbers = TelecomUtils
 					.findAssociateNumbers(docType,actualDocId);
-			session.setAttribute("numners", mobileNumbers);
+			session.setAttribute("numbers", mobileNumbers);
 			response.sendRedirect("viewNumbers.jsp");
 		} else {
-			session.setAttribute("error", ".");
+			session.setAttribute("error", "Document is not valid");
 			response.sendRedirect("doclinked.jsp");
 		}
 
