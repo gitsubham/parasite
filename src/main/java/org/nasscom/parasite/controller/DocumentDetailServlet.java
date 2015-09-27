@@ -34,7 +34,7 @@ public class DocumentDetailServlet extends HttpServlet {
 		
 		if (user != null && TelecomUtils.isValidDocument(docType, actualDocId)) {
 
-			ArrayList<MobileNumber> mobileNumbers = TelecomUtils
+			ArrayList<MobileNumber> mobileNumbers = QueryUtils
 					.findAssociateNumbers(docType,actualDocId);
 			user.setAltMobileList(mobileNumbers);
 			session.setAttribute("user", user);

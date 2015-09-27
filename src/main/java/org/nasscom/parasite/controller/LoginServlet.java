@@ -32,10 +32,10 @@ public class LoginServlet extends HttpServlet {
 
 		if (user != null && providedOTP.equals(user.getOTP())) {
 			String mobNum = user.getMobileNumber();
-//			ArrayList<Document> documents = QueryUtils
-//					.getDocumentList(mobNum);
-			ArrayList<Document> documents = TelecomUtils
+			ArrayList<Document> documents = QueryUtils
 					.getDocumentList(mobNum);
+//			ArrayList<Document> documents = TelecomUtils
+//					.getDocumentList(mobNum);
 			user.setDocumentList(documents);
 			session.setAttribute("user", user);
 			response.sendRedirect("doclinked.jsp");
