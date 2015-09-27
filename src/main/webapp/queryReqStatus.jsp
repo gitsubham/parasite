@@ -45,6 +45,7 @@
 							} else {
 								for (VfcationRequestForm req : reqList) {
 									out.println("<tr>");
+									out.println("<td>" + count + "</td>");
 									out.println("<td>" + req.getAgstNumber() + "</td>");
 									out.println("<td>" + req.getReferenceNum() + "</td>");
 									out.println("<td>" + req.getReqStatus() + "</td>");
