@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.apache.commons.lang.StringUtils;
+import org.nasscom.parasite.base.Application;
 import org.nasscom.parasite.base.DbFactory;
 import org.nasscom.parasite.beans.Document;
 import org.nasscom.parasite.beans.MobileNumber;
@@ -29,7 +30,26 @@ public class QueryUtils {
 	/**
 	 * @return
 	 */
-	public static ArrayList<Document> getVerificationReq(){
+	public static ArrayList<VfcationRequestForm> getVerificationReq(){
+		
+		ArrayList<VfcationRequestForm> list = new ArrayList<VfcationRequestForm>();
+		
+		VfcationRequestForm vrf = new VfcationRequestForm();
+		vrf.setReferenceNum(TelecomUtils.getVerificationRefNum());
+		vrf.setRequestBy("1234");
+		vrf.setAgstNumber("4567");
+		vrf.setAgstCardType("PAN Card");
+		vrf.setReqStatus(Application.STATUS_STARTED_BY_USER);
+
+		list.add(vrf);
+		vrf = new VfcationRequestForm();
+		vrf.setReferenceNum(TelecomUtils.getVerificationRefNum());
+		vrf.setRequestBy("1234");
+		vrf.setAgstNumber("866456");
+		vrf.setAgstCardType("PAN Card");
+		vrf.setReqStatus(Application.STATUS_TERMINATE);
+		
+		list.add(vrf);
 		
 		return null;
 	}
