@@ -17,16 +17,16 @@
 		<div class="col-lg-3"></div>
 		<div class=" well col-lg-6">
 
-			<form class="well" method="post" action="#">
+			<form method="post" action="#">
 				<div class="col-lg-9 input-group-lg">
-					<h3>Are you sure that you want to verify number ${phoneNumber}
-						against ${actualDocId}</h3>
+					<p>Are you sure that you want to verify number ${phoneNumber}
+						against ${actualDocId}</p>
 				</div>
 				<div class="col-lg-3">
-					<button class="btn btn-lg btn-primary" type="submit">Generate
-						OTP</button>
+					<button class="btn btn-md btn-primary" type="submit">Yes, Verify</button>
 				</div>
-
+				
+				<p class="bg-success">...</p>
 			</form>
 
 
