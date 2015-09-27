@@ -33,8 +33,7 @@
 		<div class=" col-lg-7">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title" style="text-align: center">Numbers
-						linked with ${docType} - ${actualDocId}</h3>
+					<h3 class="panel-title" style="text-align: center">Linked Numbers</h3>
 				</div>
 				<table class="table ">
 					<tr>
@@ -51,18 +50,24 @@
 
 							ArrayList<MobileNumber> numbers = user.getAltMobileList();
 							if (numbers.isEmpty()) {
-								out.println("<tr><td colspan=\"4\">No record found. </td></tr>");
+								out.println("<tr> <td colspan=\"4\">No record found. </td> </tr>");
 							} else {
 								int count = 1;
 								for (MobileNumber num : numbers) {
-									out.println("<tr><td>" + count + "</td><td>" + num.getEncryMobNumber() + "</td><td>"
-											+ num.getAssociatedDoc());
+									out.println("<tr>");
+									out.println("<form action=\"./verify\" method=\"post\">");
+									out.println("<td>" + count + "</td>");
+									out.println("<td>" + num.getEncryMobNumber() + "</td>");
+									out.println("<td>" + num.getAssociatedDoc() + "</td>");
+									out.print("<td><input name=\"actualMobNumber\" type=\"hidden\" val=" +num.getActualmobNumber() + "></td>");
+									out.print("<td><input name= \"associatedDoc\" type=\"hidden\" val=" +num.getAssociatedDoc() + "> </td>");
+									out.print("<td><button id=\"verifyOwnership\" class=\"btn  btn-sm btn-primary\" onclick=\"clicked(this)\" type=\"submit\">Verify Ownership</button></td>");
+									out.println("</form>");
+									out.println("</tr>");				
 					%>
-					</td>
-					<td><button id="verifyOwnership"
-							class="btn  btn-sm btn-primary" onclick="clicked(this)"
-							type="submit">Verify Ownership</button></td>
-					</tr>
+					
+					
+					
 					<%
 						count++;
 								}
