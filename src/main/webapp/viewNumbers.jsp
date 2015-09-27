@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" name="viewport"
 	content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-<title>Parasite | Assciated Numbers</title>
+<title>Parasite | Associated Numbers</title>
 
 <script type="text/javascript">
 	function clicked() {
@@ -27,7 +27,7 @@
 </head>
 <body>
 	<%@include file="includes/header.jsp"%>
-	<div class="container-fluid">
+	<div class="container-fluid" >
 	
 	
 		<div style="margin: 10%"></div>
@@ -35,18 +35,20 @@
 		<div class=" col-lg-7">
 		<div >
 		<%
-			if (session.getAttribute("error") !=null) {
-				String errorMsg=(String) session.getAttribute("error");
-				if (errorMsg!=null){
-					out.println("<p class=\"bg-danger\">" + errorMsg + "</p>");
+			if (session.getAttribute("visitedServlet").equals("true") || session.getAttribute("visitedServlet")=="true" ) {
+				if (session.getAttribute("error") !=null) {
+					String errorMsg=(String) session.getAttribute("error");
+					if (errorMsg!=null){
+						out.println("<p  class=\"bg-danger\" style=\"text-align:center\" >" + errorMsg + "</p>");
+					}	
 				}	
-			}	
-			else 
-			{
-				String successMsg=(String) session.getAttribute("result");
-				if (successMsg!=null){
-					out.println("<p class=\"bg-success\">" + successMsg + "</p>");
-				}	
+				else 
+				{
+					String successMsg=(String) session.getAttribute("result");
+					if (successMsg!=null){
+						out.println("<p  class=\"bg-success\" style=\"text-align:center\" >" + successMsg + "</p>");
+					}	
+				}
 			}	
 		%>	
 		</div>
