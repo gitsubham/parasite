@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<%@include file="includes/header.jsp"%>
+	<%@include file="includes/headerLandingPage.jsp"%>
 	<div class="container-fluid">
 		<div style="margin: 10%"></div>
 		<div class="col-lg-3"></div>

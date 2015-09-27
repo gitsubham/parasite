@@ -37,12 +37,16 @@
 		<%
 			if (session.getAttribute("error") !=null) {
 				String errorMsg=(String) session.getAttribute("error");
-				out.println("<p class=\"bg-danger\">" + errorMsg + "</p>");
+				if (errorMsg!=null){
+					out.println("<p class=\"bg-danger\">" + errorMsg + "</p>");
+				}	
 			}	
 			else 
 			{
 				String successMsg=(String) session.getAttribute("result");
-				out.println("<p class=\"bg-success\">" + successMsg + "</p>");
+				if (successMsg!=null){
+					out.println("<p class=\"bg-success\">" + successMsg + "</p>");
+				}	
 			}	
 		%>	
 		</div>
@@ -58,14 +62,13 @@
 						<td>Action</td>
 					</tr>
 
-
 					<%
 						AppUser user = (AppUser) session.getAttribute("user");
 						if (user != null && StringUtils.isNotBlank(user.getMobileNumber())) {
 
 							ArrayList<MobileNumber> numbers = user.getAltMobileList();
 							if (numbers.isEmpty()) {
-								out.println("<tr> <td colspan=\"4\">No record found. </td> </tr>");
+								out.println("<tr > <td></td><td></td><td  colspan=\"4\"><b>No record found.</b> </td> </tr>");
 							} else {
 								int count = 1;
 								for (MobileNumber num : numbers) {
