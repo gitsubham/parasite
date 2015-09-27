@@ -1,9 +1,8 @@
 
 <%@page import="org.apache.commons.lang.StringUtils"%>
-<%@page import="org.nasscom.parasite.beans.Document"%>
+<%@page import="org.nasscom.parasite.beans.VfcationRequestForm"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.nasscom.parasite.base.AppUser"%>
-
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -36,43 +35,36 @@
 						<td>Request Status</td>
 					</tr>
 
-	<%
-		AppUser user = (AppUser) session.getAttribute("user");
-		if (user!= null && StringUtils.isNotBlank(user.getMobileNumber())) {
-
-		ArrayList<Document> documents = user.getDocumentList();
-		if (documents.isEmpty()) {
-			out.println("<tr><td colspan=\"4\">No record found. </td></tr>");
-		} else {
-			int count = 1;
-			for (Document doc : documents) {
-			%>
-			<tr>
-				<form class="viewLinkedNumbers" method="post" action="./details">
-				<td ><% out.print(count); %></td>
-				<td><input type="text" class="label1"  id="docType" name="docType" value="<% out.print(doc.getDocType()); %>" readonly /></td>
-				<input type="hidden" id="actualDocId" name="actualDocId" val="<% out.print(doc.getActualDocId()); %>" />
-				<td> <% out.print(doc.getEncryptedDocId());%> </td>
-				<td><span class="label label-success">Verified</span></td>
-				</form>
-			</tr>
-			<%
-				count++;
-			}
-		}
-		}else{
-			// redirect to login page
-		%>
-			<jsp:forward page="./index.jsp" />
-		<%
-		}
-	%>
+					<%
+						AppUser user = (AppUser) session.getAttribute("user");
+						if (user != null) {
+							int count = 1;
+							ArrayList<VfcationRequestForm> reqList = user.getVerifyReqList();
+							if (reqList.isEmpty()) {
+								out.println("<tr><td></td><td></td><td  colspan=\"4\"><b>No record found.</b> </td></tr>");
+							} else {
+								for (VfcationRequestForm req : reqList) {
+									out.println("<tr>");
+									out.println("<td>" + req.getAgstNumber() + "</td>");
+									out.println("<td>" + req.getReferenceNum() + "</td>");
+									out.println("<td>" + req.getReqStatus() + "</td>");
+									out.println("</tr>");
+									count++;
+								}
+							}
+						} else {
+							// redirect to login page
+					%>
+					<jsp:forward page="./index.jsp" />
+					<%
+						}
+					%>
 
 				</table>
 			</div>
 		</div>
 	</div>
-	
+
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
