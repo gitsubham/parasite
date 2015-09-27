@@ -1,3 +1,10 @@
+
+<%@page import="org.apache.commons.lang.StringUtils"%>
+<%@page import="org.nasscom.parasite.beans.Document"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.nasscom.parasite.base.AppUser"%>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,7 +14,7 @@
 <meta http-equiv="Content-Type" name="viewport"
 	content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-<title>Parasite</title>
+<title>Parasite | Document</title>
 </head>
 <body>
 	<%@include file="includes/header.jsp"%>
@@ -27,18 +34,39 @@
 						<td>Document Id</td>
 						<td>Action</td>
 					</tr>
-					<tr>
-						<form class="viewLinkedNumbers" method="post" action="./details">
-							<td >1</td>
-								<td id="docType" name="docType">Pan Card</td>
-								<input type="hidden" id="actualDocId" name="actualDocId" val=${actualDocId} />
-							<td type="hidden" id="encryptedDocId" name="encryptedDocId"> ${encryptedDocId} </td>
-							<td>
-								<button class="btn  btn-sm btn-primary" type="submit">View
-									Numbers</button>
-							</td>
-						</form>
-					</tr>
+
+	<%
+		AppUser user = (AppUser) session.getAttribute("user");
+		if (user!= null && StringUtils.isNotBlank(user.getMobileNumber())) {
+
+		ArrayList<Document> documents = user.getDocumentList();
+		if (documents.isEmpty()) {
+			out.println("<tr><td colspan=\"4\">No record found. </td></tr>");
+		} else {
+			int count = 1;
+			for (Document doc : documents) {
+			%>
+			<tr>
+				<form class="viewLinkedNumbers" method="post" action="./details">
+				<td ><% out.print(count); %></td>
+				<td><input type="text" id="docType" name="docType" value="<% out.print(doc.getDocType()); %>" readonly /></td>
+				<input type="hidden" id="actualDocId" name="actualDocId" val="<% out.print(doc.getActualDocId()); %>" />
+				<td> <% out.print(doc.getEncryptedDocId());%> </td>
+				<td><button class="btn  btn-sm btn-primary" type="submit">View Numbers</button></td>
+				</form>
+			</tr>
+			<%
+				count++;
+			}
+		}
+		}else{
+			// redirect to login page
+		%>
+			<jsp:forward page="./index.jsp" />
+		<%
+		}
+	%>
+
 				</table>
 			</div>
 		</div>

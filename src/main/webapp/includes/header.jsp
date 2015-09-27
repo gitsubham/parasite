@@ -14,6 +14,7 @@
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Query Request Status</a></li>
 				<li><a href="#">About us</a></li>
+				<li><a href="./logout">Log Out</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

@@ -1,6 +1,11 @@
 package org.nasscom.parasite.beans;
 
-public class Document {
+import java.io.Serializable;
+
+public class Document implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private String docType;
 	private String actualDocId;
 	private String encryptedDocId;

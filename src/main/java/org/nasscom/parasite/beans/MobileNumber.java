@@ -1,9 +1,22 @@
 package org.nasscom.parasite.beans;
 
-public class MobileNumber {
+import java.io.Serializable;
+
+public class MobileNumber implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	private String associatedDoc;
+	
+	private String associateDocId;
+	
 	private String actualmobNumber;
 	private String encryMobNumber;
 
+	public MobileNumber(){
+		
+	}
+	
 	public String getActualmobNumber() {
 		return actualmobNumber;
 	}
@@ -20,4 +33,14 @@ public class MobileNumber {
 		this.encryMobNumber = encryMobNumber;
 	}
 
+	public String getAssociatedDoc() {
+		return associatedDoc;
+	}
+
+	public void setAssociatedDoc(String associatedDoc) {
+		this.associatedDoc = associatedDoc;
+	}
+
+	
+	
 }

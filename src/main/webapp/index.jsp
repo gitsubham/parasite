@@ -1,3 +1,6 @@
+<%@page import="org.apache.commons.lang.StringUtils"%>
+<%@page import="org.nasscom.parasite.base.AppUser"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,7 +10,7 @@
 <meta http-equiv="Content-Type" name="viewport"
 	content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-<title>Parasite</title>
+<title>Parasite | Login</title>
 </head>
 <body>
 
@@ -21,8 +24,24 @@
 
 				<div class="col-lg-9 input-group-lg">
 
+
+	<%
+		AppUser user = (AppUser) session.getAttribute("user");
+
+		if (user!= null && StringUtils.isNotBlank(user.getMobileNumber())) {
+	%>
+					<input id="inputPhone" name="inputPhone" class="form-control "
+						placeholder="Phone Number" required="" autofocus="" type="text"
+						value="<% out.print(user.getMobileNumber()); %>">
+	<%
+		}else{
+	%>
 					<input id="inputPhone" name="inputPhone" class="form-control "
 						placeholder="Phone Number" required="" autofocus="" type="text">
+	<%
+		}
+	%>
+
 				</div>
 				<div class="col-lg-3">
 					<button class="btn btn-lg btn-primary" type="submit">Generate
