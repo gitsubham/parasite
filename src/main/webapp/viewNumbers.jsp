@@ -28,9 +28,25 @@
 <body>
 	<%@include file="includes/header.jsp"%>
 	<div class="container-fluid">
+	
+	
 		<div style="margin: 10%"></div>
 		<div class="col-lg-3"></div>
 		<div class=" col-lg-7">
+		<div >
+		<%
+			out.println("error --" + session.getAttribute("error"));
+			if (session.getAttribute("error") !=null) {
+				String errorMsg=(String) session.getAttribute("error");
+				out.println("<p class=\"bg-danger\">" + errorMsg + "</p>");
+			}	
+			else 
+			{
+				String successMsg=(String) session.getAttribute("error");
+				out.println("<p class=\"bg-success\">" + successMsg + "</p>");
+			}	
+		%>	
+		</div>
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title" style="text-align: center">Linked Numbers</h3>
@@ -59,9 +75,9 @@
 									out.println("<td>" + count + "</td>");
 									out.println("<td>" + num.getEncryMobNumber() + "</td>");
 									out.println("<td>" + num.getAssociatedDoc() + "</td>");
+									out.print("<td><button id=\"verifyOwnership\" class=\"btn  btn-sm btn-primary\" onclick=\"clicked(this)\" type=\"submit\">Verify Ownership</button></td>");
 									out.print("<td><input name=\"actualMobNumber\" type=\"hidden\" value=" +num.getActualmobNumber() + "></td>");
 									out.print("<td><input name= \"associatedDoc\" type=\"hidden\" value=" +num.getAssociatedDoc() + "> </td>");
-									out.print("<td><button id=\"verifyOwnership\" class=\"btn  btn-sm btn-primary\" onclick=\"clicked(this)\" type=\"submit\">Verify Ownership</button></td>");
 									out.println("</form>");
 									out.println("</tr>");				
 					%>
