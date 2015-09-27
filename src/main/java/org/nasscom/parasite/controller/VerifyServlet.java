@@ -29,6 +29,8 @@ public class VerifyServlet extends HttpServlet {
 		String cardType = request.getParameter("associatedDoc");
 		HttpSession session = request.getSession(true);
 
+		if (session.getAttribute("error") != null)
+			session.removeAttribute("error");
 		
 		
 		if (TelecomUtils.isEligibleForVerification(mobNum, cardType)) {

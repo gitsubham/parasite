@@ -27,6 +27,9 @@ public class VerificationHistoryServlet  extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		AppUser user = (AppUser) session.getAttribute("user");
 		
+		if (session.getAttribute("error") != null)
+			session.removeAttribute("error");
+		
 		if(user != null){
 			ArrayList<VfcationRequestForm> vfcationReqList = new ArrayList<VfcationRequestForm>();
 			vfcationReqList = QueryUtils.getVerificationReq(user.getMobileNumber());

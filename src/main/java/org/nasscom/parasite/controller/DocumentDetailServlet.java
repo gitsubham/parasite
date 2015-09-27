@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.nasscom.parasite.base.AppUser;
 import org.nasscom.parasite.beans.MobileNumber;
 import org.nasscom.parasite.utils.QueryUtils;
@@ -31,6 +32,10 @@ public class DocumentDetailServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		AppUser user = (AppUser) session.getAttribute("user");
 		actualDocId = user.findDocId(docType);		
+		
+		if (session.getAttribute("error") != null)
+			session.removeAttribute("error");
+	
 		
 		if (user != null && TelecomUtils.isValidDocument(docType, actualDocId)) {
 

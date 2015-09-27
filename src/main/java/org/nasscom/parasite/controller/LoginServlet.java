@@ -28,6 +28,9 @@ public class LoginServlet extends HttpServlet {
 		String providedOTP = request.getParameter("inputOTP");
 		HttpSession session = request.getSession(true);
 
+		if (session.getAttribute("error") != null)
+			session.removeAttribute("error");
+		
 		AppUser user = (AppUser) session.getAttribute("user");
 
 		if (user != null && providedOTP.equals(user.getOTP())) {
