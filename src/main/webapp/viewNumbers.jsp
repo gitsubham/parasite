@@ -59,8 +59,8 @@
 									out.println("<td>" + count + "</td>");
 									out.println("<td>" + num.getEncryMobNumber() + "</td>");
 									out.println("<td>" + num.getAssociatedDoc() + "</td>");
-									out.print("<td><input name=\"actualMobNumber\" type=\"hidden\" val=" +num.getActualmobNumber() + "></td>");
-									out.print("<td><input name= \"associatedDoc\" type=\"hidden\" val=" +num.getAssociatedDoc() + "> </td>");
+									out.print("<td><input name=\"actualMobNumber\" type=\"hidden\" value=" +num.getActualmobNumber() + "></td>");
+									out.print("<td><input name= \"associatedDoc\" type=\"hidden\" value=" +num.getAssociatedDoc() + "> </td>");
 									out.print("<td><button id=\"verifyOwnership\" class=\"btn  btn-sm btn-primary\" onclick=\"clicked(this)\" type=\"submit\">Verify Ownership</button></td>");
 									out.println("</form>");
 									out.println("</tr>");				

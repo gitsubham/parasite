@@ -10,6 +10,10 @@
 		<servlet-class>org.nasscom.parasite.controller.VerifyServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>VerificationDetails</servlet-name>
+		<servlet-class>org.nasscom.parasite.controller.VerificationHistoryServlet</servlet-class>
+	</servlet>
 
 	<servlet>
 		<servlet-name>Login</servlet-name>
@@ -30,6 +34,11 @@
 		<servlet-name>LogOut</servlet-name>
 		<servlet-class>org.nasscom.parasite.controller.LogoutServlet</servlet-class>
 	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>VerificationDetails</servlet-name>
+		<url-pattern>/verificationDetails</url-pattern>
+	</servlet-mapping>
 
 
 	<servlet-mapping>

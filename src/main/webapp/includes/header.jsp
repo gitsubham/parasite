@@ -12,7 +12,7 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/parasite/index.jsp">Home</a></li>
-				<li><a href="/parasite/queryReqStatus.jsp">Query Request Status</a></li>
+				<li><a href="./verificationDetails">Query Request Status</a></li>
 				<li><a href="/parasite/aboutus.html">About us</a></li>
 				<li><a href="./logout">Log Out</a></li>
 			</ul>
