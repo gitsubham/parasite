@@ -4,34 +4,100 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import org.apache.commons.lang.StringUtils;
 import org.nasscom.parasite.base.DbFactory;
 import org.nasscom.parasite.beans.Document;
 import org.nasscom.parasite.beans.MobileNumber;
+import org.nasscom.parasite.beans.VfcationRequestForm;
 
 public class QueryUtils {
 
 	
 	
+	/**
+	 * @return
+	 */
 	public static boolean isVerifiedRecently(){
+		
+		
+		
 		return false;
 	}
 	
+	/**
+	 * @return
+	 */
 	public static ArrayList<Document> getVerificationReq(){
 		
 		return null;
 	}
 	
 	
-	public static boolean enterVerificationReq(){
+	/**
+	 * @param vrf
+	 * @return
+	 */
+	public static boolean enterVerificationReq(VfcationRequestForm vrf){
+
+		if (vrf == null){
+			return false;
+		}
+/*		
+		Connection conn = null;
+		ResultSet rs = null;
+		PreparedStatement preparedStatement = null;
+		StringBuilder selectSql = new StringBuilder();
+		selectSql = selectSql.append(" Select card_type,card_id")
+				.append(" from").append(" telcom_details").append(" where")
+				.append(" mobile_num =").append("  ? ");
+
+		try {
+			conn = DbFactory.getInstance().getConnection();
+			preparedStatement = conn.prepareStatement(selectSql.toString());
+			preparedStatement.setString(1, mob);
+			rs = preparedStatement.executeQuery();
 		
-		
+			while (rs.next()) {
+				Document dc = new Document();
+				dc.setDocType(rs.getString("card_type"));
+				dc.setActualDocId(rs.getString("card_id"));
+				dc.setEncryptedDocId(rs.getString("card_id"));
+				result.add(dc);
+			}
+
+		} catch (Exception e) {
+
+			System.out.println(e);
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (SQLException e) {
+			}
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException e) {
+			}
+
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+			}
+		}
+
+
+	*/	
 		return true;
 	}
 	
+	/**
+	 * @param mob
+	 * @return
+	 */
 	public static ArrayList<Document> getDocumentList(String mob) {
 
 		ArrayList<Document> result = new ArrayList<Document>();
@@ -86,6 +152,11 @@ public class QueryUtils {
 		return result;
 	}
 
+	/**
+	 * @param cardType
+	 * @param cardId
+	 * @return
+	 */
 	public static ArrayList<MobileNumber> findAssociateNumbers(String cardType,
 			String cardId) {
 
@@ -116,6 +187,8 @@ public class QueryUtils {
 				MobileNumber num = new MobileNumber();
 				num.setActualmobNumber(rs.getString("mobile_num"));
 				num.setEncryMobNumber(MobileUtils.encryptNumber(rs.getString("mobile_num")));
+				num.setAssociatedDoc(cardType);
+				num.setAssociateDocId(cardId);
 				result.add(num);
 			}
 

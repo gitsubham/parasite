@@ -6,6 +6,12 @@
   <display-name>Archetype Created Web Application</display-name>
 
 	<servlet>
+		<servlet-name>Verify</servlet-name>
+		<servlet-class>org.nasscom.parasite.controller.VerifyServlet</servlet-class>
+	</servlet>
+
+
+	<servlet>
 		<servlet-name>Login</servlet-name>
 		<servlet-class>org.nasscom.parasite.controller.LoginServlet</servlet-class>
 	</servlet>
@@ -24,6 +30,13 @@
 		<servlet-name>LogOut</servlet-name>
 		<servlet-class>org.nasscom.parasite.controller.LogoutServlet</servlet-class>
 	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>Verify</servlet-name>
+		<url-pattern>/verify</url-pattern>
+	</servlet-mapping>
+
 
 	<servlet-mapping>
 		<servlet-name>LogOut</servlet-name>
