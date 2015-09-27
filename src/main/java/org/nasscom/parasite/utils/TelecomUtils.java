@@ -91,7 +91,7 @@ public class TelecomUtils {
 	public static boolean isEligibleForVerification(String num, String cardType) {
 
 		if (StringUtils.isNotBlank(num) && StringUtils.isNotBlank(cardType)) {
-			if (!QueryUtils.isVerifiedRecently()) {
+			if (!QueryUtils.isVerifiedRecently(num,cardType)) {
 				return true;
 			}
 		}

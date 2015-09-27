@@ -29,7 +29,7 @@ public class VerificationHistoryServlet  extends HttpServlet {
 		
 		if(user != null){
 			ArrayList<VfcationRequestForm> vfcationReqList = new ArrayList<VfcationRequestForm>();
-			vfcationReqList = QueryUtils.getVerificationReq();
+			vfcationReqList = QueryUtils.getVerificationReq(user.getMobileNumber());
 			user.setVerifyReqList(vfcationReqList);
 			session.setAttribute("user", user);
 			response.sendRedirect("queryReqStatus.jsp");
