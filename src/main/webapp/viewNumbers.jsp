@@ -36,12 +36,15 @@
 		<div >
 		<%
 			out.println("error --" + session.getAttribute("error"));
-			if (session.getAttribute("error") !=null)
-				String errorMsg=session.getAttribute("error");
+			if (session.getAttribute("error") !=null) {
+				String errorMsg=(String) session.getAttribute("error");
 				out.println("<p class=\"bg-danger\">" + errorMsg + "</p>");
+			}	
 			else 
-				String successMsg=session.getAttribute("error");
+			{
+				String successMsg=(String) session.getAttribute("error");
 				out.println("<p class=\"bg-success\">" + successMsg + "</p>");
+			}	
 		%>	
 		</div>
 			<div class="panel panel-primary">
@@ -73,8 +76,8 @@
 									out.println("<td>" + num.getEncryMobNumber() + "</td>");
 									out.println("<td>" + num.getAssociatedDoc() + "</td>");
 									out.print("<td><button id=\"verifyOwnership\" class=\"btn  btn-sm btn-primary\" onclick=\"clicked(this)\" type=\"submit\">Verify Ownership</button></td>");
-									out.print("<td><input name=\"actualMobNumber\" type=\"hidden\" val=" +num.getActualmobNumber() + "></td>");
-									out.print("<td><input name= \"associatedDoc\" type=\"hidden\" val=" +num.getAssociatedDoc() + "> </td>");
+									out.print("<td><input name=\"actualMobNumber\" type=\"hidden\" value=" +num.getActualmobNumber() + "></td>");
+									out.print("<td><input name= \"associatedDoc\" type=\"hidden\" value=" +num.getAssociatedDoc() + "> </td>");
 									out.println("</form>");
 									out.println("</tr>");				
 					%>
