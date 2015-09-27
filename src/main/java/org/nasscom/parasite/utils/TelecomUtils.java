@@ -2,6 +2,7 @@ package org.nasscom.parasite.utils;
 
 import java.util.ArrayList;
 
+import org.apache.commons.lang.StringUtils;
 import org.nasscom.parasite.beans.Document;
 import org.nasscom.parasite.beans.MobileNumber;
 
@@ -35,18 +36,18 @@ public class TelecomUtils {
 		ArrayList <MobileNumber> numbers = new ArrayList<MobileNumber> ();
 		
 		MobileNumber num = new MobileNumber();
-
-		numbers.add(num);
 		num.setActualmobNumber("9851063353");
-		num.setEncryMobNumber("9851063353");
-
+		num.setEncryMobNumber(MobileUtils.encryptNumber("9851063353"));
+		numbers.add(num);
+		
 		num = new MobileNumber();
 		num.setActualmobNumber("8335881012");
-		num.setEncryMobNumber("8335881012");
+		num.setEncryMobNumber(MobileUtils.encryptNumber("8335881012"));
+		numbers.add(num);
 
 		num = new MobileNumber();
 		num.setActualmobNumber("94101081678");
-		num.setEncryMobNumber("94101081678");
+		num.setEncryMobNumber(MobileUtils.encryptNumber("94101081678"));
 		
 		numbers.add(num);
 		
@@ -55,7 +56,10 @@ public class TelecomUtils {
 	
 	
 	
-	public static boolean isValidDocument(String type,String id){
-		return true;	
+	public static boolean isValidDocument(String type,String id){		
+		if(StringUtils.isNotBlank(type) && StringUtils.isNotBlank(id))
+			return true;
+		else
+			return false;
 	}
 }

@@ -20,6 +20,16 @@
 		<servlet-class>org.nasscom.parasite.controller.DocumentDetailServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>org.nasscom.parasite.controller.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>DocDetail</servlet-name>
 		<url-pattern>/details</url-pattern>

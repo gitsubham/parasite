@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.commons.lang.StringUtils;
 import org.nasscom.parasite.base.DbFactory;
 import org.nasscom.parasite.beans.Document;
 import org.nasscom.parasite.beans.MobileNumber;
@@ -15,29 +16,43 @@ public class QueryUtils {
 
 	
 	
+	public static boolean isVerifiedRecently(){
+		return false;
+	}
+	
+	public static ArrayList<Document> getVerificationReq(){
+		
+		return null;
+	}
 	
 	
-	
+	public static boolean enterVerificationReq(){
+		
+		
+		return true;
+	}
 	
 	public static ArrayList<Document> getDocumentList(String mob) {
 
+		ArrayList<Document> result = new ArrayList<Document>();
+		if (StringUtils.isBlank(mob)){
+			return result;
+		}
+		
 		Connection conn = null;
-		Statement stmt = null;
 		ResultSet rs = null;
 		PreparedStatement preparedStatement = null;
 		StringBuilder selectSql = new StringBuilder();
 		selectSql = selectSql.append(" Select card_type,card_id")
 				.append(" from").append(" telcom_details").append(" where")
-				.append(" mobile_num=").append(" '?'");
+				.append(" mobile_num =").append("  ? ");
 
-		ArrayList<Document> result = new ArrayList<Document>();
 		try {
 			conn = DbFactory.getInstance().getConnection();
 			preparedStatement = conn.prepareStatement(selectSql.toString());
 			preparedStatement.setString(1, mob);
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(selectSql.toString());
-
+			rs = preparedStatement.executeQuery();
+		
 			while (rs.next()) {
 				Document dc = new Document();
 				dc.setDocType(rs.getString("card_type"));
@@ -48,6 +63,7 @@ public class QueryUtils {
 
 		} catch (Exception e) {
 
+			System.out.println(e);
 		} finally {
 			try {
 				if (rs != null)
@@ -55,8 +71,8 @@ public class QueryUtils {
 			} catch (SQLException e) {
 			}
 			try {
-				if (stmt != null)
-					stmt.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
 			} catch (SQLException e) {
 			}
 
@@ -74,16 +90,19 @@ public class QueryUtils {
 			String cardId) {
 
 		ArrayList<MobileNumber> result = new ArrayList<MobileNumber>();
-
+		if(StringUtils.isBlank(cardType) || StringUtils.isBlank(cardId)){
+			return result;
+		}
+		
+		
 		Connection conn = null;
-		Statement stmt = null;
 		ResultSet rs = null;
 		PreparedStatement preparedStatement = null;
 		StringBuilder selectSql = new StringBuilder();
 		selectSql = selectSql.append(" Select mobile_num").append(" from")
 				.append(" telcom_details").append(" where")
-				.append(" card_type =").append(" '?'").append(" And")
-				.append(" card_id =").append(" '?'");
+				.append(" card_type =").append("  ? ").append(" And")
+				.append(" card_id =").append("  ? ");
 
 		try {
 			conn = DbFactory.getInstance().getConnection();
@@ -91,13 +110,12 @@ public class QueryUtils {
 			preparedStatement.setString(1, cardType);
 			preparedStatement.setString(2, cardId);
 
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(selectSql.toString());
+			rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
 				MobileNumber num = new MobileNumber();
 				num.setActualmobNumber(rs.getString("mobile_num"));
-				num.setEncryMobNumber(rs.getString("mobile_num"));
+				num.setEncryMobNumber(MobileUtils.encryptNumber(rs.getString("mobile_num")));
 				result.add(num);
 			}
 
@@ -110,8 +128,8 @@ public class QueryUtils {
 			} catch (SQLException e) {
 			}
 			try {
-				if (stmt != null)
-					stmt.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
 			} catch (SQLException e) {
 			}
 
