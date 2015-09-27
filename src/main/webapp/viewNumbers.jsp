@@ -35,14 +35,13 @@
 		<div class=" col-lg-7">
 		<div >
 		<%
-			out.println("error --" + session.getAttribute("error"));
 			if (session.getAttribute("error") !=null) {
 				String errorMsg=(String) session.getAttribute("error");
 				out.println("<p class=\"bg-danger\">" + errorMsg + "</p>");
 			}	
 			else 
 			{
-				String successMsg=(String) session.getAttribute("error");
+				String successMsg=(String) session.getAttribute("result");
 				out.println("<p class=\"bg-success\">" + successMsg + "</p>");
 			}	
 		%>	
