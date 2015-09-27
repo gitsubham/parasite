@@ -4,6 +4,10 @@ import org.apache.commons.lang.StringUtils;
 
 public class MobileUtils {
 
+	/**
+	 * @param num
+	 * @return
+	 */
 	public static boolean isValidMobileNumber(String num) {
 		if (StringUtils.isNotBlank(num) && num.length() == 10 ) {
 			return true;
@@ -11,11 +15,18 @@ public class MobileUtils {
 		return false;
 	}
 
+	/**
+	 * @return
+	 */
 	public static String generateOTP() {
 		return "270915";
 	}
 
 	
+	/**
+	 * @param mob
+	 * @return
+	 */
 	public static String encryptNumber(String mob){
 		
 		if(StringUtils.isBlank(mob)){

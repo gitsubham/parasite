@@ -41,6 +41,14 @@ public class MobileNumber implements Serializable{
 		this.associatedDoc = associatedDoc;
 	}
 
+	public String getAssociateDocId() {
+		return associateDocId;
+	}
+
+	public void setAssociateDocId(String associateDocId) {
+		this.associateDocId = associateDocId;
+	}
+
 	
 	
 }
