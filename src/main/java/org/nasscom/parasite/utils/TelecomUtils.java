@@ -1,5 +1,7 @@
 package org.nasscom.parasite.utils;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 import org.apache.commons.lang.StringUtils;
@@ -77,8 +79,7 @@ public class TelecomUtils {
 	 * @return
 	 */
 	public static String getVerificationRefNum() {
-
-		String code = "TXN001";
+		String code = new BigInteger(130, new SecureRandom()).toString(32);
 		return code;
 	}
 

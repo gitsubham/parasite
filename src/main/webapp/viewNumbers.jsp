@@ -66,8 +66,6 @@
 									out.println("</tr>");				
 					%>
 					
-					
-					
 					<%
 						count++;
 								}
