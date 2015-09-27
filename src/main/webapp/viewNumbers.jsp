@@ -14,12 +14,14 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <title>Parasite | Assciated Numbers</title>
 
-<script>
-function verify(id){
-	id.innerHTML="oops !"
-	$('#myModal').modal('show'); 
-}
-
+<script type="text/javascript">
+	function clicked() {
+		if (confirm('Do you wanna to submit?')) {
+			verifyOwnership.submit();
+		} else {
+			return false;
+		}
+	}
 </script>
 
 </head>
@@ -31,60 +33,47 @@ function verify(id){
 		<div class=" col-lg-7">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title" style="text-align: center">Numbers linked with  ${docType} - ${actualDocId}</h3> 
+					<h3 class="panel-title" style="text-align: center">Numbers
+						linked with ${docType} - ${actualDocId}</h3>
 				</div>
 				<table class="table ">
 					<tr>
 						<td>#</td>
-						<td></td>
 						<td>Mobile Number</td>
-						<!-- <td>Telecom Provider</td>  -->
+						<td>Associated Document</td> 
 						<td>Action</td>
 					</tr>
 
 
-	<%
-		AppUser user = (AppUser) session.getAttribute("user");
-		if (user!= null && StringUtils.isNotBlank(user.getMobileNumber())) {
+					<%
+						AppUser user = (AppUser) session.getAttribute("user");
+						if (user != null && StringUtils.isNotBlank(user.getMobileNumber())) {
 
-		ArrayList<MobileNumber> numbers = user.getAltMobileList();
-		if (numbers.isEmpty()) {
-			out.println("<tr><td colspan=\"4\">No record found. </td></tr>");
-		} else {
-			int count = 1;
-			for (MobileNumber num : numbers) {
-				out.println("<tr><td>" + count + "</td><td>"
-						+ num.getEncryMobNumber() + "</td><td>"
-						+ num.getActualmobNumber());
-				%>
-				</td><td><button class="btn  btn-sm btn-primary" onclick="verify(this)" type="submit">Verify Ownership</button></td></tr>
-				<% 
-				count++;
-			}
-		}
-		}else{
-			// redirect to login page
-		%>
-			<jsp:forward page="./index.jsp" />
-		<%
-			
-		}
-	%>
-
-
-
-	<tr>
-						<form class="verifyMobileNumber" method="post" action="#">
-							<td >1</td>
-							<td>
-							<input name="actualMobileNumber" type="hidden" value= ${actualMobileNumber}/></td>
-							<td id="encryMobNumber" name="encryMobileNumber" type="hidden"/>xxxxx76114</td>
-							<!-- <td id="telecomProvider" name="telecomProvider">${telecomProvider}</td>  -->
-							<td>
-								<button class="btn  btn-sm btn-primary" onclick="verify(this)" type="submit">Verify Ownership</button>
-							</td>
-						</form>
+							ArrayList<MobileNumber> numbers = user.getAltMobileList();
+							if (numbers.isEmpty()) {
+								out.println("<tr><td colspan=\"4\">No record found. </td></tr>");
+							} else {
+								int count = 1;
+								for (MobileNumber num : numbers) {
+									out.println("<tr><td>" + count + "</td><td>" + num.getEncryMobNumber() + "</td><td>"
+											+ num.getAssociatedDoc());
+					%>
+					</td>
+					<td><button id="verifyOwnership"
+							class="btn  btn-sm btn-primary" onclick="clicked(this)"
+							type="submit">Verify Ownership</button></td>
 					</tr>
+					<%
+						count++;
+								}
+							}
+						} else {
+							// redirect to login page
+					%>
+					<jsp:forward page="./index.jsp" />
+					<%
+						}
+					%>
 				</table>
 			</div>
 		</div>

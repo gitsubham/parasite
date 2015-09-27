@@ -14,6 +14,8 @@
 <meta http-equiv="Content-Type" name="viewport"
 	content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/site-specific-css1.css" rel="stylesheet" media="screen">
+
 <title>Parasite | Document</title>
 </head>
 <body>
@@ -49,7 +51,7 @@
 			<tr>
 				<form class="viewLinkedNumbers" method="post" action="./details">
 				<td ><% out.print(count); %></td>
-				<td><input type="text" id="docType" name="docType" value="<% out.print(doc.getDocType()); %>" readonly /></td>
+				<td><input type="text" class="label1"  id="docType" name="docType" value="<% out.print(doc.getDocType()); %>" readonly /></td>
 				<input type="hidden" id="actualDocId" name="actualDocId" val="<% out.print(doc.getActualDocId()); %>" />
 				<td> <% out.print(doc.getEncryptedDocId());%> </td>
 				<td><button class="btn  btn-sm btn-primary" type="submit">View Numbers</button></td>

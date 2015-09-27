@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.nasscom.parasite.base.AppUser;
 import org.nasscom.parasite.beans.Document;
 import org.nasscom.parasite.utils.QueryUtils;
+import org.nasscom.parasite.utils.TelecomUtils;
 
 public class LoginServlet extends HttpServlet {
 
@@ -31,7 +32,9 @@ public class LoginServlet extends HttpServlet {
 
 		if (user != null && providedOTP.equals(user.getOTP())) {
 			String mobNum = user.getMobileNumber();
-			ArrayList<Document> documents = QueryUtils
+//			ArrayList<Document> documents = QueryUtils
+//					.getDocumentList(mobNum);
+			ArrayList<Document> documents = TelecomUtils
 					.getDocumentList(mobNum);
 			user.setDocumentList(documents);
 			session.setAttribute("user", user);

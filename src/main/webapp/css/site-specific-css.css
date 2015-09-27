@@ -4,6 +4,12 @@
  	text-align: center;
  	border: 0;
  }
+ 
+ .asd {
+    background:rgba(0,0,0,0);
+    border:none;
+}
+ 
  .mainMenu{
 	margin-top:15px;
  }
